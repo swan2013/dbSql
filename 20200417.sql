@@ -31,7 +31,7 @@ WHERE userid = 'brown';
 
 sal값이 1000보다 크거나 같고, 2000보다 작거나 같은 직원만 조회 ==>BETWEEN AND;
 비교대상 컬럼 / 값 BETWEEN 시작값 AND 종료값
-시작값과 종교값의 위치를 바꾸면 정상 동작하지 않음
+시작값과 종료값의 위치를 바꾸면 정상 동작하지 않음
 
 
 
@@ -45,6 +45,11 @@ WHERE sal BETWEEN 1000 AND 2000;
 exclusive or (배타적 or)
 a or b  a= true, b = true ==> true
 a exclusive or b a = true, b = true ==> false
+
+SELECT *
+FROM emp
+WHERE 1000 <= sal
+  AND sal <= 2000;
 
 SELECT *
 FROM emp
@@ -78,7 +83,7 @@ WHERE deptno = 10
 -IN 실습 WHERE3]
 users 테이블에서 userid가 brown, cony , sally인 데이터를 다음과 같이 조회 하시오(IN 연산자 사용)
 
-SELECT userid AS 아이디, usernm AS 이름, alias AS 별명
+SELECT userid AS "아이디", usernm AS "이름", alias AS "별명"
 FROM users;
 WHERE userid IN ('brown', 'cony', 'sally');
 
@@ -149,7 +154,7 @@ WHERE mgr IN (7698, 7839);
 
 SELECT *
 FROM emp
-WHERE mgr NOT IN (7698, 7839);
+WHERE mgr IN (7698, 7839);
 ==> WHERE mgr = 7698 or mgr = 7839
 
 SELECT *
@@ -245,5 +250,12 @@ FROM emp
 ORDER BY ename DESC;
 
 SELECT *
-FROM emp
+FROM emp;
 ORDER BY comm DESC;
+
+job을 기준으로 오름 차순정렬하고 job이 같을 경우 입사일자로 내림차순정렬
+모든 데이터 조회
+SELECT *
+FROM emp
+ORDER BY job ASC, hiredate DESC;
+WhERE
