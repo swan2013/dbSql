@@ -163,7 +163,7 @@ FROM
  FROM emp
  ODER BY ename);
  
- INLINE_VIEW와 비굘르 위해 VIEW를 직접 생성(선행학습, 나중에 나온다.)
+ INLINE_VIEW와 비교를 위해 VIEW를 직접 생성(선행학습, 나중에 나온다.)
  VIEW - 쿼리 (view 테이블-X)
  
  DML - Data Manipulation Language : SELECT, INSERT, UPDATE, DELETE
