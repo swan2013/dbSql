@@ -115,7 +115,7 @@ SELECT SUBSTR('Hello, World', 1, 5) sub,
        RPAD('hello', 15, '*') rp,
        REPLACE('Hello, World', 'll', 'LL') rep,
        TRIM('      Hello    ') tr,
-       TRIM('H' FROM 'Hello') tr2  -- 문자열 앞뒤로 특정 문자 제거
+       TRIM('h' FROM 'Hello') tr2  -- 문자열 앞뒤로 특정 문자 제거
 FROM dual;
 
 
@@ -183,11 +183,11 @@ FROM dual;
  MI : 분
  SS : 초
  
- 현재시간(SYSDATE) 시분초 단위까지 표현 ==> TO_CHA를 이용하여 형변환
+ 현재시간(SYSDATE) 시분초 단위까지 표현 ==> TO_CHAR를 이용하여 형변환
  SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') now,
-        TO_CHAR(SYSDATE, 'D') d,
-        TO_CHAR(SYSDATE-3, 'YYYY/MM/DD HH24:MI:SS') now_before3,
-        TO_CHAR(SYSDATE-1/24, 'YYYY/MM/DD HH24:MI:SS') now_before_1hour
+        TO_CHAR(SYSDATE-4, 'D') d,
+        TO_CHAR(SYSDATE-4, 'YYYY/MM/DD HH24:MI:SS') now_before3,
+        TO_CHAR(SYSDATE-4-1/24, 'YYYY/MM/DD HH24:MI:SS') now_before_1hour
  FROM dual;
  
 date 실습 fn2]
