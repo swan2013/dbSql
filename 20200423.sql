@@ -117,7 +117,7 @@ SELECT empno, ename, hiredate,
 FROM emp;
 
 SELECT empno, ename, hiredate,
-       DECODE(MOD(TO_CHAR(hiredate, 'YYYY'),2), MOD(TO_CHAR(TO_DATE('2020', 'YYYY'), 'YYYY'),2), '대상자', '비대상자') contact_to_doctor
+       DECODE(MOD(TO_CHAR(hiredate, 'YYYY'),2), MOD(TO_CHAR(SYSDATE, 'YYYY'),2), '대상자', '비대상자') contact_to_doctor
 FROM emp;
 
 
