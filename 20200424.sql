@@ -68,14 +68,14 @@ SELECT deptno,
         MIN(sal),   -- 부서별로 가장 낮은 급여 값
         AVG(sal),   -- 부서별 급여 평균
         SUM(sal),   -- 부서별 급여 함
-        COUNT(sal)  -- 부서별 급여 건수(sal 컬럼의 값이 null이 아닌 수)
+        COUNT(sal),  -- 부서별 급여 건수(sal 컬럼의 값이 null이 아닌 수)
         COUNT(*)    -- 부서의 행의 수
 FROM emp
 GROUP BY deptno;
 
 * 그룹 함수를 통해 부서번호 별 가장 높은 급여를 구할 수는 있지만
   가장 높은 급열르 받는 사람의 이름을 알 수는 없다.
-  --> 추구 WINDOM/분석 RUNCTION을 통해 해경 가능
+  --> 추구 WINDOM/분석 RUNCTION을 통해 해결 가능
   
   emp 테이블의 그룹 기준을 부서받호
 SELECT deptno,
@@ -92,6 +92,7 @@ GROUP BY deptno;
 2020.04.27일 발표 때 정답 확인
 GROUP BY 절에 기술된 컬럼이
     SELECT 절에 나오지 않으면 ???
+    출력 컬럼이 없음
     
 GROUP BY 절에 기술되지 않은 컬럼이
     SELECT 절에 나오면 ???
