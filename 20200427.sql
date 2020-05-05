@@ -12,7 +12,7 @@ DBMS : DATABASE Management System
 RDMS : Relational DataBase Managerment System
 ==> 관계형 데이터베이스 관리 시스템
 
-JOING 문법의 종류
+JOIN 문법의 종류
 ANSI - 표준
 벤더사의 문법(ORACLE)
 
@@ -23,7 +23,7 @@ SELECT 할 수 있는 컬럼의 개수가 많아진다.(가로 확장)
 
 NATRAL JOIN
     . 조인하려는 두 테이블의 연결고리 컬럼의 이름 같은 경우
-    . emp, dept 테이블에는 deptno라는 공통된(동일한 일므의, 타입도 동일) 연결고리 컬림이 존재
+    . emp, dept 테이블에는 deptno라는 공통된(동일한 이름, 타입도 동일) 연결고리 컬림이 존재
     . 다른 ANSI-SQL 문법을 통해서 대체가 가능하고, 조인 테이블들의 컬럼명이 동일하지 않으면
       사용이 불가능하기 때문에 사용빈도는 다소 낮다.
 
@@ -36,7 +36,7 @@ FROM emp NATURAL JOIN dept;
 
 ORACLE 조인 문법을 ANSI 문법처럼 세분화 하지 않음
 오라클 조인 문법
-1. 조인할 테이블 목록을 FROM 절에 기술하며 구분자는 콜론(,)
+1. 조인할 테이블 목록을 FROM 절에 기술하며 구분자는 (,)
 2. 연결고리 조건을 WHERE절에 기술하면 된다. (ex : WHERE emp.deptno = dept.deptno)
 
 SELECT *
@@ -81,10 +81,11 @@ ANSI-SQL로 SQL 조인 :
                         ==> JOIN with ON
                 
 ANSI-SQL로 작성
+(오라클)
 SELECT *
 FROM emp e, emp m
 WHERE e.mgr = m.empno;
-
+(ANSI)
 SELECT *
 FROM emp e JOIN emp m  ON(e.mgr = m.empno);
 
@@ -188,4 +189,3 @@ FROM prod JOIN (SELECT lprod_gu prod_lgu, lprod_id, lprod_nm FROM lprod) lprod U
 DELETE FROM dept a
 WHERE ROWID > (SELECT MIN(ROWID) FROM dept b
   WHERE b.deptno = a.deptno);
-
