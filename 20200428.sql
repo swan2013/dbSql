@@ -121,5 +121,37 @@ FROM cycle JOIN product ON(cycle.pid = product.pid)
 GROUP BY cycle.pid, pnm;
 
 8~13번 과제
-SELECT *
-FROM jobs;
+데이터 결합 실습 join8]
+SELECT region_id, region_name, country_name
+FROM regions JOIN countries USING(region_id)
+WHERE region_name = 'Europe';
+
+데이터 결합 실습 join9]
+SELECT countries.region_id, region_name, country_name, city
+FROM countries JOIN regions ON(countries.region_id = regions.region_id)
+               JOIN locations ON(countries.country_id = locations.country_id)
+WHERE region_name = 'Europe';
+
+데이터 결합 실습 join10]
+SELECT countries.region_id, region_name, country_name, city, department_name
+FROM countries JOIN regions ON(countries.region_id = regions.region_id)
+               JOIN locations ON(countries.country_id = locations.country_id)
+               JOIN departments ON(locations.location_id = departments.location_id)
+WHERE region_name = 'Europe';
+
+데이터 결합 실습 join11]
+SELECT countries.region_id, region_name, country_name, city, department_name, first_name || last_name name
+FROM countries JOIN regions ON(countries.region_id = regions.region_id)
+               JOIN locations ON(countries.country_id = locations.country_id)
+               JOIN departments ON(locations.location_id = departments.location_id)
+               JOIN employees ON(departments.department_id = employees.department_id)
+WHERE region_name = 'Europe';
+
+데이터 결합 실습 join12]
+SELECT employee_id, first_name || last_name name, jobs.job_id, job_title
+FROM employees JOIN jobs ON(employees.job_id = jobs.job_id);
+
+데이터 결합 실습 join13]
+SELECT employees.manager_id mgr_id, mgr.first_name || mgr.last_name mgr_name, employees.employee_id, employees.first_name || employees.last_name name, employees.job_id, jobs.job_title
+FROM employees JOIN employees mgr ON(employees.manager_id = mgr.employee_id)
+               JOIN jobs ON(employees.job_id = jobs.job_id);
